@@ -7,10 +7,11 @@ OpenCore now includes a driver `OpenLinuxBoot.efi` which should make dualbooting
 The steps to using it are:
 
  1. Install Linux as you normally would e.g. by booting from an .iso image burnt to a removable USB drive - OpenLinuxBoot.efi is not involved in this stage
- 2. Add `OpenLinuxBoot.efi` and `ext4_x64.efi` to your `config.plist` `Drivers` section
- 3. Make sure `RequestBootVarRouting` and `LauncherOption` are enabled in `config.plist`; it is also recommended to enable `HideAuxiliary` in order to hide older Linux kernels except when you need to see them (which you would do by pressing SPACE to show auxiliary entries in the OpenCore boot menu)
- 4. Reboot into OpenCore, installed Linux should now just appear
- 5. Never use Grub again
+ 2. Get `ext4_x64.efi` from [acidanthera/OCBinaryData](https://github.com/acidanthera/OcBinaryData/tree/master/Drivers) and put it in the `/EFI/OC/Drivers` directory on the EFI partition.
+ 3. Add `OpenLinuxBoot.efi` and `ext4_x64.efi` to your `config.plist` `Drivers` section
+ 4. Make sure `RequestBootVarRouting` and `LauncherOption` are enabled in `config.plist`; it is also recommended to enable `HideAuxiliary` in order to hide older Linux kernels except when you need to see them (which you would do by pressing SPACE to show auxiliary entries in the OpenCore boot menu)
+ 5. Reboot into OpenCore, installed Linux should now just appear
+ 6. Never use Grub again
 
 If you previously used method B or C below, you will need to remove those settings in order not to see your Linux distro twice in the OpenCore boot menu.
 
